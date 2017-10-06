@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>How to: Bootstrap and Grid Basics</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+    <style>
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .list-data {
+            display: inline-block;
+            font-size: 1.5em;
+        }
+        .list-btn {
+            float: right;
+        }
+        .inline-pre {
+            display: inline !important;
+            padding: 3px !important;
+        }
+        pre {
+            color: #e91e63 !important;
+        }
+        .example {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #ccc;
+        }
+        .ex-title {
+            color: #333;
+            font-weight: 500;
+            font-size: 1em;
+        }
+        .teal {
+            background-color: teal;
+        }
+        .orange {
+            background-color: orangered;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .purple {
+            background-color: purple;
+        }
+        .red {
+            background-color: red;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        .grey {
+            background-color: lightgray;
+        }
+    </style>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+  </head>
+
+  <body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3>Boostrap Grid</h3>
+                    <h5>A Brief Bootstrap Grid Demo</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <code data-gist-id="7ddb68143131b8d7ab1af358c7fed586"></code> -->
+    <section id="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-5">
+                    <h3>Basic Grid Rules</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">Rows will only hold 12 columns regardless of type (<pre class="inline-pre">lg</pre><pre class="inline-pre">md</pre><pre class="inline-pre">sm</pre><pre class="inline-pre">xs</pre>)</li>
+                        <li class="list-group-item">Rows should not have more than 12 columns for their initial size (desktop)</li>
+                        <li class="list-group-item">If using <pre class="inline-pre">sm</pre> or <pre class="inline-pre">xs</pre> tags, rows will have more than 12 columns, but this should be anticipated and organized to account for this</li>
+                        <li class="list-group-item">All columns groups must be wrapper in a <pre class="inline-pre">&lt;div class="row"&gt;&lt;/div&gt;</pre></li>
+                        <li class="list-group-item">All <pre class="inline-pre">'rows'</pre> must be wrapped in a <pre class="inline-pre">&lt;div class="container"&gt;&lt;/div&gt;</pre></li>
+                        <li class="list-group-item">All <pre class="inline-pre">container</pre>'s should be wrapped in a <pre class="inline-pre">&lt;section&gt;&lt;/section&gt;</pre> tag</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <h3>Code Example</h3>
+                    <code data-gist-id="7ddb68143131b8d7ab1af358c7fed586"></code>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-5">
+                    <h3>Column Breakpoints</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item"><pre class="inline-pre">lg</pre> - Will maintain this # of columns from > <b>1200px</b> (17in laptops and screens)</li>
+                        <li class="list-group-item"><pre class="inline-pre">md</pre> - Will maintain this # of columns from 1199px to <b>992px</b> (15.6in Laptops and horizontal tablets)</li>
+                        <li class="list-group-item"><pre class="inline-pre">sm</pre> - Will maintain this # of columns from 991px to <b>768px</b> (vertical tablets)</li>
+                        <li class="list-group-item"><pre class="inline-pre">xs</pre> - Will maintain this # of columns for anything under <b>767px</b> (phones and small tablets)</li>
+                        <li class="list-group-item"><b>If you do not specify what to do at each breakpoint...</b><br>Bootstrap will go to 100% width when it hits the last breakpoint</li>
+                        <li class="list-group-item">So our <pre class="inline-pre">&lt;div class="col-md-6"&gt;&lt;/div&gt;</pre> will break from 50% to 100% width at 992px, since the <pre class="inline-pre">md</pre> breakpoint is at 992px</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <h3>Sizes of Column Numbers</h3>
+                    <h5 class="text-muted">What the number means in the <pre class="inline-pre">col-md-1</pre> classes</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item">1: 8.3%</li>
+                                <li class="list-group-item">2: 16.67%</li>
+                                <li class="list-group-item">3: 25%</li>
+                                <li class="list-group-item">4: 33%</li>
+                                <li class="list-group-item">5: 41.67%</li>
+                                <li class="list-group-item">6: 50%</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item">7: 58.33%</li>
+                                <li class="list-group-item">8: 66%</li>
+                                <li class="list-group-item">9: 75%</li>
+                                <li class="list-group-item">10: 83.33%</li>
+                                <li class="list-group-item">11: 91.66%</li>
+                                <li class="list-group-item">12: 100%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Simple Examples</h3>
+                    <!-- First Row -->
+                    <div class="row example">
+                        <div class="col-md-6 col-sm-6 col-xs-12 teal">
+                            I am 50% at 'md' and 'sm' but 100% at 'xs'
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 orange">
+                            I am the same as the column next to me
+                        </div>
+                    </div>
+                    <!-- Second Row -->
+                    <div class="row example">
+                        <div class="col-md-12 green">
+                            I am 100% all the time since I am md-12 and nothing else!
+                        </div>
+                    </div>
+                    <!-- Third Row -->
+                    <div class="row example">
+                        <div class="col-md-3 col-sm-6 col-xs-12 purple">
+                            md-3 sm-6 xs-12
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 red">
+                            md-3 sm-6 xs-12
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 yellow">
+                            md-3 sm-6 xs-12
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 blue">
+                            md-3 sm-6 xs-12
+                        </div>
+                    </div>
+                    <!-- Fourth Row -->
+                    <div class="row example">
+                        <div class="col-md-4 col-sm-4 col-xs-4 blue">
+                            md-4 sm-4 xs-4
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 purple">
+                            md-4 sm-4 xs-4
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 green">
+                            md-4 sm-4 xs-4
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Code for the above examples:</h3>
+                            <code data-gist-id="14e2c5d03e973027da63853bde302485"></code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Nested Columns</h3>
+                    If you want to nest columns inside of columns <b>always wrap the nested columns with a row</b>!!!  This is super important,
+                    and although Bootstrap will forgive you sometimes, many times your breakpoints will get weird (not in the good way) as they hit <pre class="inline-pre">sm</pre> and <pre class="inline-pre">xs</pre>
+                    <h4>Why does this happen?</h4>
+                    <b>Columns</b> are <b>inline-block</b> and <b>rows</b> are <b>block</b>.  So the <pre class="inline-pre">row</pre> gives you a chance to reset the display.  If you simple keep
+                    adding columns, they will stack whenever they have room.  Since Bootstrap is <b>percentage</b> based, this is bound to happen.
+                    <h4 class="alert alert-info">Wrapping your columns in a row will gaurentee their behavior!</h4>
+                    <h4>Let's look at some example codes!</h4>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Basic Nested Examples</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row example">
+                <div class="col-md-6 col-sm-6 col-xs-12 grey">
+                    <span class="ex-title">There are 4 columns that are each <pre class="inline-pre">col-md-3 col-sm-3 col-xs-3</pre> nested inside of this <pre class="inline-pre">col-md-6 col-sm-6 col-xs-12</pre></span>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 red">
+                            Hi
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 blue">
+                            how
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 yellow">
+                            are   
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 green">
+                            you 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <span class="ex-title">There are 4 columns that are each <pre class="inline-pre">col-md-3 col-sm-6 col-xs-12</pre> nested inside of this <pre class="inline-pre">col-md-6 col-sm-6 col-xs-12</pre></span>                        
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12 orange">
+                            Hi
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 purple">
+                            how
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 blue">
+                            are   
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 green">
+                            you 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Code for the above examples:</h3>
+                    <code data-gist-id="0a3a72c11b939f1ad2bfa10ef934bdab"></code>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h3>Nested Insanity</h3>
+            <div class="row example">
+                <div class="col-md-6 col-xs-6 col-xs-12 grey">
+                    <span class="ex-title">These 2 md-6's (that are inside of an md-6) have different nested columns</span>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6 red">
+                            col-6 #1
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12 green">
+                                    6's until xs, then 12
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 yellow">
+                                    6's until xs, then 12
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 blue">
+                            col-6 #2
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6 orange">
+                                    6's all the way
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 purple">
+                                    6's all the way  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6 col-xs-12">
+                    <span class="ex-title">This is 3 md-4's inside of an md-6 that will behave differently</span>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-xs-12 orange">
+                            md-4 sm-6 xs-12
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12 green">
+                            md-4 sm-6 xs-12  
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12 blue">
+                            md-4 sm-12 xs-12
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Code for the above examples:</h3>
+                    <code data-gist-id="30ada356b9cf1caec9a9f0ba74228384"></code>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Offsetting Columns</h3>
+                    Offestting columns can be handy to make space when you need it (such as when on desktop you want padding, but not on table).  
+                    The offsets can happen at all the varying breakpoints: <pre class="inline-pre">lg, md, sm, xs</pre>, and just like columns, they will
+                    only happen during the specified breakpoint.
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row example grey">
+                <span class="ex-title">Note the row is grey</span>
+                <div class="col-md-offset-2 col-md-10 col-sm-offset-1 col-sm-11 col-xs-12 blue">
+                    This column is actually always 12 columns.  It will begin as offset-2, then it will string to offset-1, then not have an offset at all
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Code for the above example:</h3>
+                    <code data-gist-id="61ba68da4faa1b12bdbe851923da6af8"></code>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <h3>How do these grid work?</h3>
+                Great question.  The grids work using media queries to set the width of them to specific percentges when the screen is a specific size.  To learn more
+                about media queries, and how to make your own Bootstrap-lisk grid system, check <a target="_blank" href="https://codepen.io/mikeparda/pen/XmxWxV">my Codepen that is here</a>
+            </div>
+            <div class="row">
+                <h3>Other useful links:</h3>
+                <a target="_blank" href="https://getbootstrap.com/docs/3.3/css/#grid">Bootstrap Grid Docs</a>
+                <br>
+                <a target="_blank" href="https://getbootstrap.com/docs/3.3">Bootstrap Docs</a>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+<script>
+    var md = new Remarkable('full');
+</script>
+
+</body>
+</html>
+
